@@ -39,7 +39,7 @@ const Register = () => {
           </button>
         </form>
         <p className=" text-cyan-500 text-md mt-2">
-          You do not have an account? Login
+          You do have an account? Login
         </p>
       </div>
     </div>
