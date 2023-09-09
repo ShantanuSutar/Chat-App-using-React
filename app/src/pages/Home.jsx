@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div className="  bg-cyan-400 w-full h-screen flex items-center justify-center">
       <div
-        className="border-white border-2 rounded-lg
+        className="border rounded-lg
        w-[65%] h-[80%] flex overflow-hidden"
       >
         <Sidebar />
