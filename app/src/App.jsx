@@ -5,9 +5,9 @@ import Register from "./pages/Register";
 function App() {
   return (
     <div className="">
-      {/* <Register />
-      <Login /> */}
-      <Home />
+      <Register />
+      {/* <Login /> */}
+      {/* <Home /> */}
     </div>
   );
 }
