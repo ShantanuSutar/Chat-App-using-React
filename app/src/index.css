@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-.name {
-  /* background: red; */
+.owner {
+  flex-direction: row-reverse;
+}
+
+.owner p {
+  background-color: #30acc5;
+  color: white;
+  border-radius: 10px 0 10px 10px;
+}
+
+.owner .messageContent {
+  align-items: flex-end;
 }

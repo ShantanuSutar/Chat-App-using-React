@@ -1,5 +1,7 @@
 import { BsFillCameraVideoFill, BsPersonFillAdd } from "react-icons/bs";
 import { FiMoreHorizontal } from "react-icons/fi";
+import Messages from "./Messages";
+import Input from "./Input";
 const Chat = () => {
   return (
     <div className=" flex-[2]">
@@ -11,6 +13,8 @@ const Chat = () => {
           <FiMoreHorizontal className=" h-6 w-5 cursor-pointer" />
         </div>
       </div>
+      <Messages />
+      <Input />
     </div>
   );
 };
