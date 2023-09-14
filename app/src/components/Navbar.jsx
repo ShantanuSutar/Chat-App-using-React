@@ -1,3 +1,6 @@
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase";
+
 const Navbar = () => {
   return (
     <div className="  flex items-center bg-cyan-700 h-16 p-[10px] justify-between text-cyan-50">
@@ -9,7 +12,10 @@ const Navbar = () => {
           className=" bg-cyan-50 h-6 w-6 rounded-full object-cover"
         />
         <span>Sam</span>
-        <button className=" bg-cyan-600 text-cyan-50 text-sm border-none p-1 rounded-sm cursor-pointer hover:bg-cyan-500">
+        <button
+          className=" bg-cyan-600 text-cyan-50 text-sm border-none p-1 rounded-sm cursor-pointer hover:bg-cyan-500"
+          onClick={() => signOut(auth)}
+        >
           Logout
         </button>
       </div>
