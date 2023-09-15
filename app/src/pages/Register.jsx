@@ -42,7 +42,7 @@ const Register = () => {
               photoURL: downloadURL,
             });
 
-            await setDoc(doc(db, "userchats", res.user.uid), {});
+            await setDoc(doc(db, "userChats", res.user.uid), {});
             navigate("/");
           });
         }

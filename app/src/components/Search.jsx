@@ -53,7 +53,7 @@ const Search = () => {
         await setDoc(doc(db, "chats", combinedId), { messages: [] });
 
         //create user chats
-        await setDoc(doc(db, "userChats", currentUser.uid), {
+        await updateDoc(doc(db, "userChats", currentUser.uid), {
           [combinedId + ".userInfo"]: {
             uid: user.uid,
             displayName: user.displayName,
