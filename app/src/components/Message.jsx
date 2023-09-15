@@ -1,4 +1,4 @@
-const Message = () => {
+const Message = ({ message }) => {
   return (
     <div className=" flex gap-5 owner">
       <div className=" flex flex-col text-slate-500 font-[350] mb-5">
