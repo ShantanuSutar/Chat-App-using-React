@@ -1,4 +1,31 @@
+import { useState } from "react";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { db } from "../firebase";
+
 const Search = () => {
+  const [username, setUsername] = useState("");
+  const [user, setUser] = useState(null);
+  const [err, setErr] = useState(false);
+
+  const handleSearch = async () => {
+    const usersRef = collection(db, "users");
+
+    const q = query(usersRef, where("displayName", "==", username));
+
+    try {
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        setUser(doc.data());
+      });
+    } catch (error) {
+      setErr(true);
+    }
+  };
+
+  const handleKey = (e) => {
+    e.code === "Enter" && handleSearch();
+  };
+
   return (
     <div className="border-b">
       <div className=" p-2 ">
@@ -6,18 +33,23 @@ const Search = () => {
           type="text"
           className=" bg-transparent border-none text-white placeholder:text-slate-200 outline-none"
           placeholder="Search..."
+          onKeyDown={handleKey}
+          onChange={(e) => setUsername(e.target.value)}
         />
       </div>
-      <div className=" p-2 flex items-center gap-2 text-white cursor-pointer hover:bg-cyan-700">
-        <img
-          src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80"
-          alt="User Photo"
-          className=" bg-cyan-50 h-12 w-12 rounded-full object-cover"
-        />
-        <div>
-          <span>Ram</span>
+      {err && <span className=" text-white p-2">User not found!</span>}
+      {user && (
+        <div className=" p-2 flex items-center gap-2 text-white cursor-pointer hover:bg-cyan-700">
+          <img
+            src={user.photoURL}
+            alt={user.displayName}
+            className=" bg-cyan-50 h-12 w-12 rounded-full object-cover"
+          />
+          <div>
+            <span>{user.displayName}</span>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
