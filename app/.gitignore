@@ -23,10 +23,3 @@ dist-ssr
 *.sln
 *.sw?
 
-.eslintrc.cjs
-package-lock.json
-package.json
-postcss.config.js
-README.md
-tailwind.config.js
-vite.config.js
